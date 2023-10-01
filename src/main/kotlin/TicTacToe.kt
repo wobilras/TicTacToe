@@ -33,5 +33,26 @@ class TicTacToe {
         }
     }
 
-
+    fun checkForWin(symbol: String, board1: Array<Array<String?>> = board): Boolean {
+        // Проверка горизонтальных линий
+        for (i in 0 until 3) {
+            if (board1[i][0] == symbol && board1[i][1] == symbol && board1[i][2] == symbol) {
+                return true
+            }
+        }
+        // Проверка вертикальных линий
+        for (j in 0 until 3) {
+            if (board1[0][j] == symbol && board1[1][j] == symbol && board1[2][j] == symbol) {
+                return true
+            }
+        }
+        // Проверка диагональных линий
+        if (board1[0][0] == symbol && board1[1][1] == symbol && board1[2][2] == symbol) {
+            return true
+        }
+        if (board1[0][2] == symbol && board1[1][1] == symbol && board1[2][0] == symbol) {
+            return true
+        }
+        return false
+    }
 }
